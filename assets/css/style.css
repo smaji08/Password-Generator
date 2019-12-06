@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+html{
+    position: relative;
+}
+
+body{
+    background: url("../images/cream_dust.png");
+    
+}
+
+hr{
+    border:1px solid lightgrey;
+}
+
+.container-main{
+    
+    max-width: 800px;
+    background: white;
+    border: 1px solid #dddddd;
+}
+
+.text-style{
+    border:dashed;
+    border-color: lightgray; 
+    border-radius: 12px; 
+    font-size:22px; 
+    resize: none;
+}
