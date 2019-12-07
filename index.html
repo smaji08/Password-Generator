@@ -12,10 +12,12 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
         
     </head>
-    <body>
+    <body onload="checkFunction()">
+        
         <div class="container wrapper text-center pt-3" style="height:50px;">
             <h2><strong>Password Generator</strong></h2>
         </div>
+        
         <div class="container " style=" height:100%; max-width: 900px;">
             <div class="container container-main shadow rounded py-4 px-5 mt-5">
                 <div class="row pt-4">
@@ -25,16 +27,54 @@
                 </div>
                 <hr>
 
+                <div class= "row mb-3">
+                    <div class="col-6">
+                        <form id="checkbox-form">
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="upperCase">
+                                    <label class="form-check-label" for="upperCase">
+                                        Uppercase Letters
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"  value="" id="lowerCase" checked>
+                                    <label class="form-check-label" for="lowerCase">
+                                        Lowercase Letters
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"  value="" id="specialChars">
+                                    <label class="form-check-label" for="specialChars">
+                                        Special Characters
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="numericChars">
+                                    <label class="form-check-label" for="numericChars">
+                                        Numerics
+                                    </label>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                                <label for="pwdLength">Password Length (8-128)</label>
+                                <input type="text" class="form-control" id="pwdLength" value="8">
+                        </div>
+                   </div>
+                </div>
+
                 <div class="row px-3">
                     <div class="col p-0">
-                        <textarea class="form-control text-style text-center text-muted text-monospace" disabled id="exampleFormControlTextarea1" rows="5" placeholder= "Your secure password" style = "background: white;"></textarea>
+                        <textarea class="form-control text-style text-center text-muted text-monospace " disabled id="show-password" rows="5" placeholder= "Your secure password" style = "background: white;"></textarea>
                     </div>
                 </div>
                 <hr>
 
                 <div class="row">
                     <div class="col-5">
-                        <button type="button" class="btn btn-danger btn-block px-3 py-2" style="background:rgb(175, 8, 8); border-radius: 30px;">
+                        <button type="button" class="btn btn-danger btn-block px-3 py-2" onclick= "checkFunction()" style="background:rgb(175, 8, 8); border-radius: 30px;">
                             <h4>Generate Password</h4></button>
                     </div>
                     <div class="col"></div>
@@ -43,8 +83,13 @@
                             <h4>Copy to Clipboard</h4></button>
                     </div>
                 </div>
-                
             </div>
         </div>
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
