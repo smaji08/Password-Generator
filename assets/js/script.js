@@ -18,8 +18,9 @@ function checkFunction(){
     if (pwdLength == "" || intPwdLength<8 || intPwdLength >128){
         alert("Please enter the length between 8 and 128")
     }
-
+    
+    document.getElementById("show-password").value = "!!Work in Progress";
+    
 }
-
 
     
