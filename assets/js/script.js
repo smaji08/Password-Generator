@@ -8,7 +8,7 @@ function validateInputs(){
     var pwdLength = document.getElementById("pwdLength").value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
-    
+        
     //getting the number(intCountCheckbox) of checkboxes which are not checked
     for (var i = 0; i < checkForm.elements.length; i++ ) {
         if (checkForm.elements[i].checked == false) {
@@ -25,7 +25,7 @@ function validateInputs(){
     //checking whether the length entered is a number or the password length is between 8 and 128. If not, alert
     // the user and bring the focus to the text boxes clearing the entered text and setting boolean(bValidation)
     // to false.
-    if (pwdLength == "" || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
+    if(!/^\d+(\.\d+)?/.exec(pwdLength) || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
         alert("Please enter the length between 8 and 128");
         document.getElementById("pwdLength").value="";
         document.getElementById("pwdLength").focus();
