@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Password Generator</title>
+        <title>Augustine's Password Generator</title>
         
+        <!-- Necessary bootstrap links and custon css link -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap" rel="stylesheet">
@@ -14,11 +15,12 @@
         
     </head>
     <body >
-        
+        <!-- A transparent container to achieve the top space to keep the "container-main" in the center of page -->
         <div class="container wrapper text-center pt-3" style="height:50px;">
             <h2><strong>Password Generator</strong></h2>
         </div>
         
+        <!-- Container-main is wrapped in another container to achieve the left and right margin spaces while resizing screen -->
         <div class="container " style=" height:100%; max-width: 900px;">
             <div class="container container-main shadow rounded py-4 px-5 mt-5">
                 <div class="row pt-4">
@@ -27,7 +29,8 @@
                     </div>
                 </div>
                 <hr>
-
+                
+                <!-- Achieved checkboxes on form itself rather than prompting the user using prompt boxes. -->
                 <div class= "row mb-3">
                     <div class="col-6">
                         <form id="checkbox-form">
@@ -56,8 +59,9 @@
                                     </label>
                             </div>
                         </form>
-
                     </div>
+                    
+                    <!-- Text box for entering the desired password length -->
                     <div class="col-6">
                         <div class="form-group">
                                 <label for="pwdLength">Password Length (8-128)</label>
@@ -66,6 +70,7 @@
                    </div>
                 </div>
 
+                <!-- The show-password textarea is disabled so that user cant enter anything in that area -->
                 <div class="row px-3">
                     <div class="col p-0">
                         <textarea id="show-password" class="form-control text-style text-center text-muted text-monospace " disabled 
@@ -75,26 +80,29 @@
                 </div>
                 <hr>
 
+                <!-- On clicking the Generate password button, validateInputs() is activated. -->
                 <div class="row">
                     <div class="col-5">
                         <button type="button" class="btn btn-danger btn-block px-3 py-2" 
-                                onclick= "checkFunction()" style="background:rgb(175, 8, 8); border-radius: 30px;">
+                                onclick= "validateInputs()" style="background:rgb(175, 8, 8); border-radius: 30px;">
                             <h4>Generate Password</h4>
                         </button>
                     </div>
           
                     <div class="col"></div>
-          
+                    
+                    <!-- The copytext button is disabled until password is generated. On clicking the button, copytoClip() is activated. -->
                     <div class="col-5">
                         <button type="button" id="copytext" class="btn btn-secondary btn-block px-3 py-2" disabled 
-                                onclick= "copytoClip(document.getElementById('show-password').value)" style="border-radius: 30px;">
-                            <h4>Copy to Clipboard</h4>
+                                onclick= "copytoClip()" style="border-radius: 30px;">
+                               <h4>Copy to Clipboard</h4>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        
+    
+    <!-- Generic scripts and custom script -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
