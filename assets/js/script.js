@@ -33,60 +33,45 @@ function checkFunction(){
 
 
 function generatePwd(intPwdLength){
-    var upperCaseStr= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var lowerCaseStr= "abcdefghijklmnopqrstuvwxyz";
-    var numStr= "0123456789";
-    var splCharStr= " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    
-    var upperPwd="";
-    var lowerPwd="";
-    var numPwd="";
-    var splPwd="";
+   
+    var arrPwd = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "abcdefghijklmnopqrstuvwxyz",
+                " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~",
+                "0123456789"];
+
     var pwdStr="";
     var password="";
-        
-    if(checkForm.elements[0].checked == true){
-        for (i=0; i<intPwdLength; i++){
-        
-            upperPwd += upperCaseStr.charAt(Math.floor(Math.random()*upperCaseStr.length));
-            
-        }
 
-        pwdStr += upperPwd;
+        
+    for (i=0; i<checkForm.length;i++){
+        
+        if(checkForm.elements[i].checked == true){
+            pwdStr += arrPwd[i];
+                
+        }
     }
+
+    pwdStr= pwdStr.split("");
     
-    if(checkForm.elements[1].checked == true){
-        for (i=0; i<intPwdLength; i++){
-        
-            lowerPwd += lowerCaseStr.charAt(Math.floor(Math.random()*lowerCaseStr.length));
-            
-        }
-        pwdStr +=lowerPwd;
+    for (i=0; i<pwdStr.length;i++){
+        var j = Math.floor(Math.random()*(pwdStr.length-1));
+    
+        var temp = pwdStr[i];
+        pwdStr[i] = pwdStr[j];
+        pwdStr[j] = temp;
+    
     }
-
-    if (checkForm.elements[2].checked == true){
-        for (i=0; i<intPwdLength; i++){
-        
-            splPwd += splCharStr.charAt(Math.floor(Math.random()*splCharStr.length));
-            
-        }
-        pwdStr += splPwd;
-    }
-
-    if(checkForm.elements[3].checked == true){
-        for (i=0; i<intPwdLength; i++){
-        
-            numPwd += numStr.charAt(Math.floor(Math.random()*numStr.length));
-            
-        }
-        pwdStr +=numPwd;
-    }
-
+    pwdStr = pwdStr.join("");
+    
     for (i=0; i<intPwdLength; i++){
+    
         password += pwdStr.charAt(Math.floor(Math.random()*pwdStr.length));
+        
     }
+
        
     document.getElementById("show-password").value = password;
+
     document.getElementById("copytext").disabled = false;
     document.getElementById("copytext").style.backgroundColor = "darkgreen";
 
