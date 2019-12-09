@@ -87,4 +87,14 @@ function generatePwd(intPwdLength){
     }
        
     document.getElementById("show-password").value = password;
+    document.getElementById("copytext").disabled = false;
+    document.getElementById("copytext").style.backgroundColor = "darkgreen";
+
+    copytext();
+}
+
+function copytoClip(copytext){
+    
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", copytext);
+    
 }

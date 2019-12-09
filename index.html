@@ -7,7 +7,8 @@
 
         <title>Password Generator</title>
         
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
         
@@ -31,7 +32,7 @@
                     <div class="col-6">
                         <form id="checkbox-form">
                             <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="x" id="upperCase">
+                                    <input class="form-check-input" type="checkbox" value="" id="upperCase">
                                     <label class="form-check-label" for="upperCase">
                                         Uppercase Letters
                                     </label>
@@ -67,20 +68,28 @@
 
                 <div class="row px-3">
                     <div class="col p-0">
-                        <textarea class="form-control text-style text-center text-muted text-monospace " disabled id="show-password" rows="5" placeholder= "Your secure password" style = "background: white;"></textarea>
+                        <textarea id="show-password" class="form-control text-style text-center text-muted text-monospace " disabled 
+                                  rows="5" placeholder= "Your secure password" style = "background: white;">
+                        </textarea>
                     </div>
                 </div>
                 <hr>
 
                 <div class="row">
                     <div class="col-5">
-                        <button type="button" class="btn btn-danger btn-block px-3 py-2" onclick= "checkFunction()" style="background:rgb(175, 8, 8); border-radius: 30px;">
-                            <h4>Generate Password</h4></button>
+                        <button type="button" class="btn btn-danger btn-block px-3 py-2" 
+                                onclick= "checkFunction()" style="background:rgb(175, 8, 8); border-radius: 30px;">
+                            <h4>Generate Password</h4>
+                        </button>
                     </div>
+          
                     <div class="col"></div>
+          
                     <div class="col-5">
-                        <button type="button" class="btn btn-secondary btn-block px-3 py-2" disabled style="border-radius: 30px;">
-                            <h4>Copy to Clipboard</h4></button>
+                        <button type="button" id="copytext" class="btn btn-secondary btn-block px-3 py-2" disabled 
+                                onclick= "copytoClip(document.getElementById('show-password').value)" style="border-radius: 30px;">
+                            <h4>Copy to Clipboard</h4>
+                        </button>
                     </div>
                 </div>
             </div>
