@@ -41,6 +41,7 @@ function generatePwd(intPwdLength){
 
     var pwdStr="";
     var password="";
+    var showPwd = true;
 
         
     for (i=0; i<checkForm.length;i++){
@@ -51,31 +52,32 @@ function generatePwd(intPwdLength){
         }
     }
 
-    pwdStr= pwdStr.split("");
+    randomize();
+
+    function randomize(){
     
-    for (i=0; i<pwdStr.length;i++){
-        var j = Math.floor(Math.random()*(pwdStr.length-1));
-    
-        var temp = pwdStr[i];
-        pwdStr[i] = pwdStr[j];
-        pwdStr[j] = temp;
-    
-    }
-    pwdStr = pwdStr.join("");
-    
-    for (i=0; i<intPwdLength; i++){
-    
-        password += pwdStr.charAt(Math.floor(Math.random()*pwdStr.length));
+        for (i=0; i<intPwdLength; i++){
         
+            password += pwdStr.charAt(Math.floor(Math.random()*pwdStr.length));
+
+        }
     }
 
-       
-    document.getElementById("show-password").value = password;
+    var contNum = password.match(/\d+/g);
+    if (contNum == null && (checkForm.elements[3].checked == true)) {
+        showPwd = false;
+        password = "";
+        randomize();
+    }
+        
+    if(showPwd){   
+        document.getElementById("show-password").value = password;
 
-    document.getElementById("copytext").disabled = false;
-    document.getElementById("copytext").style.backgroundColor = "darkgreen";
+        document.getElementById("copytext").disabled = false;
+        document.getElementById("copytext").style.backgroundColor = "darkgreen";
 
-    copytext();
+        copytext();
+    }    
 }
 
 function copytoClip(copytext){
