@@ -42,9 +42,9 @@ Needs to work on - to generate password which always includes all the selected c
 
 ### Credits
 
-http://stackoverflow.com/
-https://www.w3schools.com/
-https://css-tricks.com/
+1. http://stackoverflow.com/
+2. https://www.w3schools.com/
+3. https://css-tricks.com/
 
 
 
