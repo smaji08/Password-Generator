@@ -8,7 +8,7 @@ function validateInputs(){
     var pwdLength = document.getElementById("pwdLength").value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
-        
+
     //getting the number(intCountCheckbox) of checkboxes which are not checked
     for (var i = 0; i < checkForm.elements.length; i++ ) {
         if (checkForm.elements[i].checked == false) {
@@ -53,10 +53,8 @@ function generatePwd(intPwdLength){
 
     // looping through the Checkboxes and if checked, passing the corresponding array elements to the password string(pwdStr)  
     for (i=0; i<checkForm.length;i++){
-        
         if(checkForm.elements[i].checked == true){
             pwdStr += arrPwd[i];
-                
         }
     }
 
@@ -67,16 +65,17 @@ function generatePwd(intPwdLength){
 
     // Using Math.random() to randomize the pwdStr 
     function randomize(){
-        bShowPwd = true;    
+
+        bShowPwd = true;
+
         for (i=0; i<intPwdLength; i++){
-        
             password += pwdStr.charAt(Math.floor(Math.random()*pwdStr.length));
-           
         }
         
         // Since the probability of the inclusion of a number is less when more than 2 options are selected,
         // checking the presence of a number in the generated "password" and if not any, repeating the randomization
         var containsNum = password.match(/\d+/g);
+
         if (containsNum == null && (checkForm.elements[3].checked == true)) {
             bShowPwd = false; //if no numbers, set the bShowPwd to false
             password = "";
@@ -94,7 +93,9 @@ function generatePwd(intPwdLength){
 
 // copytoClip() get the text from the textarea and using .exeCommad('copy') on DOM copies the content to clipboard.
 function copytoClip() {
+    
     var clipText = document.getElementById("show-password");
+
     clipText.disabled = false;//google chrome only allows the content to be selected or copied if the textarea is not disabled.
     clipText.select();
     document.execCommand("copy");
