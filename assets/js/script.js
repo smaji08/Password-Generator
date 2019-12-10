@@ -26,7 +26,7 @@ function validateInputs(){
     // the user and bring the focus to the text boxes clearing the entered text and setting boolean(bValidation)
     // to false.
     if(!/^\d+(\.\d+)?/.exec(pwdLength) || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
-        alert("Please enter the length between 8 and 128");
+        alert("Please enter a length between 8 and 128");
         document.getElementById("pwdLength").value="";
         document.getElementById("pwdLength").focus();
         bValidation = false;

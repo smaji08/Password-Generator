@@ -11,7 +11,7 @@ The user will be prompted to choose from the following password criteria:
 
 * Character type:
 
-    - Special characters [see examples](https://www.owasp.org/index.php/Password_special_characters)
+    - Special characters [(see examples)](https://www.owasp.org/index.php/Password_special_characters)
     - Numeric characters
     - Lowercase characters
     - Uppercase characters
@@ -38,7 +38,7 @@ One of the challenges was to make sure a numeral is present (while more than 2 c
 
 The Bonus functionality added was copying the password to the clipboard. This was achieved using DOM s `document.execCommand("copy")`. The challenge here was that though the command returned true, the content was not really copying to clipboard when using Chrome or Firefox and worked in Microsoft Edge. Later found out that Chrome or Firefox doesnt allow copying froma hidden or disabled text or textarea.
 
-Needs to work on - to generate password which always includes all the selected criteria all the time.  
+_Needs to work on - to generate password which always includes all the selected criteria all the time_.  
 
 ### Credits
 
