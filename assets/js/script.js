@@ -10,12 +10,13 @@ var lenCheckForm = checkForm.length;
 // Function for validating the user inputs
 function validateInputs(){
     
-    var intCountCheckbox = 0;
     var pwdLengthEl = document.querySelector("#pwdLength");
+    var mymodalEl = $("#exampleModal"); 
     var pwdLength = pwdLengthEl.value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
-
+    var intCountCheckbox = 0;
+    
     //getting the number(intCountCheckbox) of checkboxes which are not checked
     for (var i = 0; i < lenCheckForm; i++ ) {
         if (checkForm.elements[i].checked == false) {
@@ -25,15 +26,19 @@ function validateInputs(){
     
     //if the count(intCountCheckbox) is 4, alert the user and set the boolean (bValidation) to false a
     if (intCountCheckbox == 4){
-        alert("You should select AT LEAST 1 checkbox");
-        bValidation = false;
+        mymodalEl.find("#msg").text('You should select AT LEAST 1 checkbox');
+        mymodalEl.modal("show");
+        
+        bValidation = false; 
     }
 
     //checking whether the length entered is a number or the password length is between 8 and 128. If not, alert
     // the user and bring the focus to the text boxes clearing the entered text and setting boolean(bValidation)
     // to false.
     if(!/^\d+(\.\d+)?/.exec(pwdLength) || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
-        alert("Please enter a length between 8 and 128");
+        mymodalEl.find("#msg").text("Please enter a length between 8 and 128");
+        mymodalEl.modal("show");
+
         pwdLengthEl.value="";
         pwdLengthEl.focus();
         bValidation = false;
@@ -44,7 +49,6 @@ function validateInputs(){
         generatePwd(intPwdLength);
     }
 }
-
 
 // Function to generte the password and print it on the textarea provided.
 function generatePwd(intPwdLength){
