@@ -108,6 +108,7 @@ function copytoClip() {
     
     passwordText.disabled = false;//google chrome only allows the content to be selected or copied if the textarea is not disabled.
     passwordText.select();
+    passwordText.setSelectionRange(0, 99999)
     document.execCommand("copy");
     passwordText.disabled = true; //once copied setting the textarea back to disabled to avoid user manipulation
 }
