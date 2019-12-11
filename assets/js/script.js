@@ -1,16 +1,23 @@
-//assigning the checkbox form DOM object to a variable
-var checkForm = document.getElementById("checkbox-form");
+//assigning the DOM elements to variables
+var generateBtn = document.querySelector("#genPassword");
+var copyBtn = document.querySelector("#copytext");
+var checkForm = document.querySelector("#checkbox-form");
+var passwordText = document.querySelector("#show-password");
+
+var lenCheckForm = checkForm.length;
+
 
 // Function for validating the user inputs
 function validateInputs(){
     
     var intCountCheckbox = 0;
-    var pwdLength = document.getElementById("pwdLength").value;
+    var pwdLengthEl = document.getElementById("pwdLength");
+    var pwdLength = pwdLengthEl.value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
 
     //getting the number(intCountCheckbox) of checkboxes which are not checked
-    for (var i = 0; i < checkForm.elements.length; i++ ) {
+    for (var i = 0; i < lenCheckForm; i++ ) {
         if (checkForm.elements[i].checked == false) {
             intCountCheckbox++;
         }
@@ -27,8 +34,8 @@ function validateInputs(){
     // to false.
     if(!/^\d+(\.\d+)?/.exec(pwdLength) || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
         alert("Please enter a length between 8 and 128");
-        document.getElementById("pwdLength").value="";
-        document.getElementById("pwdLength").focus();
+        pwdLengthEl.value="";
+        pwdLengthEl.focus();
         bValidation = false;
     }
     
@@ -50,9 +57,9 @@ function generatePwd(intPwdLength){
     var pwdStr="";
     var password="";
     var bShowPwd = true;//setting the boolean(bShowPwd) to true
-
+    
     // looping through the Checkboxes and if checked, passing the corresponding array elements to the password string(pwdStr)  
-    for (i=0; i<checkForm.length;i++){
+    for (i=0; i<lenCheckForm;i++){
         if(checkForm.elements[i].checked == true){
             pwdStr += arrPwd[i];
         }
@@ -82,22 +89,25 @@ function generatePwd(intPwdLength){
         }
     }
 
-    //Showing the password if bShowPwd is true
+    //Showing the password if bShowPwd is true and enable the copy to Clipboard button
     if(bShowPwd){   
-        document.getElementById("show-password").value = password;
-
-        document.getElementById("copytext").disabled = false; //enable the copytext button
-        document.getElementById("copytext").style.backgroundColor = "darkgreen";//set the color of copytext button to darkgreen
+        passwordText.value = password;
+    
+        copyBtn.removeAttribute("disabled");
+        copyBtn.style.backgroundColor = "darkgreen";
+        copyBtn.focus();
     }    
 }
 
 // copytoClip() get the text from the textarea and using .exeCommad('copy') on DOM copies the content to clipboard.
 function copytoClip() {
     
-    var clipText = document.getElementById("show-password");
-
-    clipText.disabled = false;//google chrome only allows the content to be selected or copied if the textarea is not disabled.
-    clipText.select();
+    passwordText.disabled = false;//google chrome only allows the content to be selected or copied if the textarea is not disabled.
+    passwordText.select();
     document.execCommand("copy");
-    clipText.disabled = true; //once copied setting the textarea back to disabled to avoid user manipulation
+    passwordText.disabled = true; //once copied setting the textarea back to disabled to avoid user manipulation
 }
+
+//Event listener for button clicks
+generateBtn.addEventListener("click", validateInputs);
+copyBtn.addEventListener("click", copytoClip);
