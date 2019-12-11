@@ -11,7 +11,7 @@ var lenCheckForm = checkForm.length;
 function validateInputs(){
     
     var intCountCheckbox = 0;
-    var pwdLengthEl = document.getElementById("pwdLength");
+    var pwdLengthEl = document.querySelector("#pwdLength");
     var pwdLength = pwdLengthEl.value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
