@@ -63,9 +63,9 @@
                     
                     <!-- Text box for entering the desired password length -->
                     <div class="col-6">
-                        <div class="form-group">
-                                <label for="pwdLength">Password Length (8-128)</label>
-                                <input type="text" class="form-control" id="pwdLength" value="8">
+                        <div class="input-group">
+                            <label for="pwdLength">Password Length (8-128) </label>
+                            <input type="number" name="work" id="pwdLength" value="8"/>
                         </div>
                    </div>
                 </div>
@@ -82,17 +82,17 @@
 
                 <!-- On clicking the Generate password button, validateInputs() is activated. -->
                 <div class="row">
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <button type="button" id= "genPassword" class="btn btn-danger btn-block px-3 py-2" 
                             style="background:rgb(175, 8, 8); border-radius: 30px;">
                             <h4>Generate Password</h4>
                         </button>
                     </div>
           
-                    <div class="col"></div>
+                    <div class="col-sm"></div>
                     
                     <!-- The copytext button is disabled until password is generated. On clicking the button, copytoClip() is activated. -->
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <button type="button" id="copytext" class="btn btn-secondary btn-block px-3 py-2" disabled 
                                 style="border-radius: 30px;">
                                <h4>Copy to Clipboard</h4>
@@ -103,15 +103,15 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="infoModal" role="dialog" aria-labelledby="InfoModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Info!</h5>
+                        <h5 class="modal-title" id="infoModalLabel">Info!</h5>
                     </div>
                     <div id = "msg" class="modal-body">""</div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                        <button type="button" id = "OKbtn" class="btn btn-secondary" data-dismiss="modal">OK</button>
                     </div>
                 </div>
             </div>

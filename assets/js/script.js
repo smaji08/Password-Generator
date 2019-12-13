@@ -11,7 +11,7 @@ var lenCheckForm = checkForm.length;
 function validateInputs(){
     
     var pwdLengthEl = document.querySelector("#pwdLength");
-    var mymodalEl = $("#exampleModal"); 
+    var mymodalEl = $("#infoModal"); 
     var pwdLength = pwdLengthEl.value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
@@ -35,7 +35,8 @@ function validateInputs(){
     //checking whether the length entered is a number or the password length is between 8 and 128. If not, alert
     // the user and bring the focus to the text boxes clearing the entered text and setting boolean(bValidation)
     // to false.
-    if(!/^\d+(\.\d+)?/.exec(pwdLength) || isNaN(pwdLength) || intPwdLength<8 || intPwdLength >128){
+    
+    if(isNaN(intPwdLength) || intPwdLength<8 || intPwdLength >128){
         mymodalEl.find("#msg").text("Please enter a length between 8 and 128");
         mymodalEl.modal("show");
 

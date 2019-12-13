@@ -30,7 +30,7 @@ You can visit my app here : [https://smaji08.github.io/Password-Generator/](http
 
 ### My Experience
 
-The approach was to check the validations and then once all are met, to call the function to generate password. The challenge here was ensuring only the numbers are allowed in the password length text column. I have used RegEx for checking the null as well as undefined values for this.
+The approach was to check the validations and then once all are met, to call the function to generate password.
 
 The logic for generating password was to first generate a string depending on the criteria selected, and then randomizing the string for the password length and then showing the result in the textarea on the screen.
 
