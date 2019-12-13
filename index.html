@@ -24,7 +24,7 @@
         <div class="container " style=" height:100%; max-width: 900px;">
             <div class="container container-main shadow rounded py-4 px-5 mt-5">
                 <div class="row pt-4">
-                    <div class="col">
+                    <div class="col-sm">
                         <h2>Generate a Password</h2>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 
                 <!-- Achieved checkboxes on form itself rather than prompting the user using prompt boxes. -->
                 <div class= "row mb-3">
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <form id="checkbox-form">
                             <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="upperCase">
@@ -62,7 +62,7 @@
                     </div>
                     
                     <!-- Text box for entering the desired password length -->
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <div class="input-group">
                             <label for="pwdLength">Password Length (8-128) </label>
                             <input type="number" name="work" id="pwdLength" value="8"/>
@@ -72,7 +72,7 @@
 
                 <!-- The show-password textarea is disabled so that user cant enter anything in that area -->
                 <div class="row px-3">
-                    <div class="col p-0">
+                    <div class="col-sm p-0">
                         <textarea id="show-password" class="form-control text-style text-center text-muted text-monospace " disabled 
                                   rows="5" placeholder= "Your secure password" style = "background: white;">
                         </textarea>
