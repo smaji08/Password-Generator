@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#genPassword");
 var copyBtn = document.querySelector("#copytext");
 var checkForm = document.querySelector("#checkbox-form");
 var passwordText = document.querySelector("#show-password");
+var mymodalEl = $("#infoModal"); 
 
 var lenCheckForm = checkForm.length;
 
@@ -11,7 +12,6 @@ var lenCheckForm = checkForm.length;
 function validateInputs(){
     
     var pwdLengthEl = document.querySelector("#pwdLength");
-    var mymodalEl = $("#infoModal"); 
     var pwdLength = pwdLengthEl.value;
     var intPwdLength = parseInt(pwdLength);
     var bValidation = true; //set to true in the assumption that all user inputs are valid
@@ -112,8 +112,11 @@ function copytoClip() {
     passwordText.setSelectionRange(0, 99999)
     document.execCommand("copy");
     passwordText.disabled = true; //once copied setting the textarea back to disabled to avoid user manipulation
+    mymodalEl.find("#msg").text("Great! Your password has been copied to the clipboard");
+    mymodalEl.modal("show");
 }
 
 //Event listener for button clicks
 generateBtn.addEventListener("click", validateInputs);
 copyBtn.addEventListener("click", copytoClip);
+
