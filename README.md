@@ -1,4 +1,9 @@
 # Password-Generator
+
+Deployed App: https://smaji08.github.io/Password-Generator/
+
+GitHub repo: https://github.com/smaji08/Password-Generator
+
 This application was developed using Bootstrap 4.3.1, HTML 5.0, CSS3 and JavaScript.
 
 ### Overview
@@ -24,9 +29,7 @@ As a bonus, the user have the option to _click a button to copy the password to 
 
 **Below is the screenshot of the application.**
 
-![PasswordGenUI](https://user-images.githubusercontent.com/54964461/70488825-e326b400-1ac7-11ea-8ce2-35a6f770f9d5.png)
-
-You can visit my app here : [https://smaji08.github.io/Password-Generator/](https://smaji08.github.io/Password-Generator/)
+![password](https://user-images.githubusercontent.com/54964461/73009338-59644900-3dde-11ea-8bd5-f5869a9a8349.png)
 
 ### My Experience
 
