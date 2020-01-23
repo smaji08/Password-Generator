@@ -9,7 +9,8 @@ html{
 }
 
 body{
-    background: url("../images/cream_dust.png");
+    background: url("../images/pwd.jpg");
+    background-size:cover;
     
 }
 
